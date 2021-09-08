@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from 'react'
+import Person from './Components/Person';
+import {useState} from 'react';
 function App() {
+  const [show, setshow] = useState(false)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <div className="container">
+      { 
+         show?<div className="card">
+           <Person />
+          </div>:null 
+        }
 
-export default App;
+
+        <h2 style={{color: " darkolivegreen"}}>you want to see this profile ?</h2>
+        <button onClick={()=>setshow(true)}>Show</button>
+        <button onClick={()=>setshow(false)}>Hide</button>
+    </div>
+  )
+}
+;
+export default App
